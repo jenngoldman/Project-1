@@ -1,0 +1,33 @@
+body {
+    margin-bottom: 100px;
+}
+
+img {
+    max-height: 400px;
+}
+
+form {
+    margin: auto;
+    margin-bottom: 25px;
+    max-width: 300px
+}
+
+.city-input {
+    font-weight: 400px;
+}
+.search-results-label {
+    margin-bottom: 10px;
+}
+
+h2 {
+    text-align: center;
+    margin: 75px 0px;
+}
+
+.population-container {
+    margin-bottom: 20px;
+}
+
+.progress {
+    margin-bottom: 10px;
+}

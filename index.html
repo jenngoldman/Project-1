@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>City Search</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div class="img-container">
+            <img src="images/greece_dock_boat_building_96360_2560x1080.jpg" class="d-block w-100 alt="Greece">
+        </div>
+        <div class="jumbotron text-center">
+            <h1 class="display-4">City Search</h1>
+            <p class="lead">Welcome to City Search! Enter a city to interact with Teleport's API and obtain general information about the city.</p>
+            <hr class="my-4">
+
+            <form>
+                <div class="form-group">
+                    <label for="city-input">City Name:</label>
+                    <input class="form-control" id="city-input"> 
+                </div>
+                <button type="submit" id="info-button" class="btn btn-lg btn-primary">Get Info</button>
+            </form>
+            <div id="search-results"></div>
+        </div>
+        <div id="city-info-container" class="container">
+            <h2 id="city-name-header"></h2>
+            <div class="row">
+                <!-- Information Table/Results -->
+                <div id="scores" class="col-6"></div>
+                <div id="activities" class="col-6"></div>
+            </div>  
+        </div>      
+    </body>
+</html>
