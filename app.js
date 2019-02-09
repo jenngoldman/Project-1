@@ -1,6 +1,17 @@
 $(document).ready(function() {
+    // Initiate carousel.
+    $(".carousel.carousel-slider").carousel({
+        fullWidth: true,
+        indicators: true
+    });
+
     $("#info-button").on("click", function(event) {
         event.preventDefault();
+        
+        if (!$("#city-input").val()) {
+            M.toast({html: 'Error: Cannot leave city name blank.'})
+            return;
+        }
 
        // Clear the search results everytime this button is clicked.
         $("#search-results").empty();
@@ -60,6 +71,7 @@ function getCityInfo() {
                 url: url,
                 method: "GET"
             }).then(function(response) {
+                console.log(response);
                 var urbanAreaUrl = response._links["city:urban_area"] ? response._links["city:urban_area"].href : "";
                 var fullCityName = response.full_name;
                 var population = response.population;
@@ -90,6 +102,7 @@ function getCityInfo() {
                     url: urbanAreaUrl + "scores/",
                     method: "GET"
                 }).then(function(response) {
+                    console.log(response);
                     var overviewHeader = $("<h3>").text("Overview");
                     var categories = response.categories;
                     var summary = $("<p>");
@@ -106,7 +119,7 @@ function getCityInfo() {
                     populationContainer.addClass("population-container");
 
                     // toLocaleString() will format the population with commas.
-                    populationContainer.html("Population: " + "<b>" + population.toLocaleString() + "</b>");
+                    populationContainer.html("<b>" + "Population: " + population.toLocaleString() + "</b>");
                     $("#scores").append(populationContainer);
 
                     // Create a progress bar for each category.
@@ -116,20 +129,23 @@ function getCityInfo() {
                         var categorySpan = $("<span>");
                         var progressBarContainer = $("<div>");
                         var progressBar = $("<div>");
+                        var scoreSpan = $("<span>");
                         var score = category.score_out_of_10;
+                        var scorePretty = score.toFixed(1);
 
-                        categorySpan.text(category.name);
+                        categorySpan.html("<b>" + category.name + ": " + "</b>");
+                        scoreSpan.text(scorePretty + " / 10");
                         categoryContainer.append(categorySpan);
+                        categoryContainer.append(scoreSpan);
 
                         progressBarContainer.addClass("progress");
 
                         progressBar.addClass("progress-bar");
+                        progressBar.addClass("determinate")
                         progressBar.attr("role", "progressbar");
-                        progressBar.attr("aria-valuenow", score);
-                        progressBar.attr("aria-valuemin", "0");
-                        progressBar.attr("aria-valuemax", "10");
                         progressBar.css("width", (score * 10) + "%");
                         progressBar.css("background-color", category.color);
+                        
 
                         progressBarContainer.append(progressBar);
                         categoryContainer.append(progressBarContainer);
@@ -156,22 +172,21 @@ function getWeatherInfo(cityName) {
             var iconCode = weather.icon;
 
             // Create html elements and append to page.
-            var weatherHeader = $("<h3>").text("Weather");
+            var weatherHeader = $("<h3>").text("Local Weather");
             weatherHeader.addClass("weather-header");
             
             var weatherMainContainer = $("<span>");
             weatherMainContainer.addClass("weather-main-container");
-            weatherMainContainer.text(mainText);
+            weatherMainContainer.html( "Currently: " + mainText);
 
             var iconImage = $("<img>");
             iconImage.attr("src", "http://openweathermap.org/img/w/" + iconCode + ".png");
 
             $("#weather-container").append(weatherHeader);
             $("#weather-container").append(weatherMainContainer);
-            $("#weather-container").append(iconImage); 
+            weatherMainContainer.append(iconImage); 
         }
-
-        // 
+ 
         var details = response.main;
         var temp = details.temp;
         var humidity = details.humidity;
@@ -188,5 +203,4 @@ function getWeatherInfo(cityName) {
          
         $("#weather-container").append(detailsContainer);
     }); 
-
 };
