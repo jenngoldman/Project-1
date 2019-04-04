@@ -171,7 +171,7 @@ function getWeatherInfo(cityName) {
             var mainText = weather.main;
             var iconCode = weather.icon;
 
-            // Create html elements and append to page.
+            // Create html elements and append to page..
             var weatherHeader = $("<h3>").text("Local Weather");
             weatherHeader.addClass("weather-header");
             
