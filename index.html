@@ -3,39 +3,79 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Sports</title>
+        <title>City Search</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 
+        <!-- Link to Bootstrap.
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+
+        <!-- Link to Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+
+        <!-- Link to Materialize. -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <!-- Link to Font Awesome. -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+        <!-- External stylesheet.-->
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
+        <!-- Materialize js. -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
         <script src="app.js"></script>
     </head>
     <body>
-     <!-- <label>Year:</label>    -->
-     <select id="year" >
-            <!-- <option value="2017-2018-regular">2018</option>
-            <option value="2016-2017-regular">2017</option>
-            <option value="2015-2016-regular">2016</option> -->
-          </select>
-          <label>Games:</label>   
+        <nav>
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">Home <i class="fas fa-search"></i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="badges.html">Sign Up</a></li>
+                    <li><a href="collapsible.html">Log In</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+   
+        <div class="carousel carousel-slider center">
+            <div class="carousel-fixed-item center">
+                <h1 class="title"> City Search <i class="fas fa-search"></i></h1>
+            </div>
+            <a class="carousel-item" href="#one!"><img class= "carousel-img" src="images/HD-photos-nature-best.jpg"></a>
+            <a class="carousel-item" href="#two!"><img class= "carousel-img" src="images/city_street_road_116607_1920x1080.jpg"></a>
+            <a class="carousel-item" href="#three!"><img class= "carousel-img" src="images/Free-City-1080p-Background-HD-hd-wallpapers-background-photos-apple-artworks-high-definition-wallpaper-for-iphone-free-pictures-1920x1080-768x432.jpg"></a>
+        </div>
 
-     <select id="game" >
-            <!-- <option value="nfl">NFL</option>
-            <option value="nhl">NHL</option>
-            <option value="mlb">MLB</option>
-            <option value="nba">NBA</option> -->
-          </select>     
+        <div class="form-container" align="center">
+            <form>
+                <div class="input-field">
+                    <input id="city-input" type="text" class="validate">
+                    <label for="city-input">City Name</label>
+                </div>
+                <button id="info-button" class="btn waves-effect waves-light btn-large" type="submit" name="action">Get Info
+                <i class="material-icons right"></i>
+                </button>
+            </form>
+        </div>
 
-          <button type="button" onclick= getGameData();>NFL FULL GAME SCHEDULE</button>
-
-          <button type="button" onclick= nhlDailyUpdate();>NHL daily schedule</button>
-          <button type="button" onclick= nflDailyUpdate();>NFL daily schedule</button>
-          <button type="button" onclick= nbaDailyUpdate();>NBA daily schedule</button>
-          <button type="button" onclick= mlbDailyUpdate();>MLB daily schedule</button>
-    <div id="data" ></div>    
-
-
+        <div class="container center-align">
+            <p class="lead">Welcome to City Search! Enter a city to discover general quality of life rankings and its current weather.</p>
+            <hr class="my-4">
+            <div id="search-results"></div>
+        </div> 
+        <div id="city-info-container">
+            <h2 id="city-name-header"></h2>
+            <div class="row">
+                <!-- Information Results -->
+                <div id="scores" class="col s6"></div>
+                <div id="weather-container" class="col s6"></div>
+            </div>  
+        </div>      
+    </body>
 </html>

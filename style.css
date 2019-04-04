@@ -1,0 +1,86 @@
+body {
+    margin-bottom: 100px;
+    font-family: 'Playfair Display', serif;
+}
+
+.nav-wrapper {
+    background-color: rgba(#ffc107, 0.8);
+}
+
+img.carousel-img {
+    max-height: 600px;
+}
+
+.title {
+    margin: 5px;
+    color: #ffc107;
+    font-size: 75pt;
+    white-space: nowrap;
+}
+
+#info-button {
+    background-color:#ee6e73;
+}
+
+.fas {
+    padding-left: 5px;
+}
+
+#search-results {
+    text-align: center;
+}
+
+form {
+    max-width: 300px;
+    margin: 40px 0px;
+}
+
+#city-input {
+    border-bottom: solid 2px;
+    border-bottom-color: #ffc107;
+    box-shadow: none;
+}
+
+.search-results-label {
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin: 50px;
+    text-align: center;
+}
+
+h3 {
+    background-color:#ee6e73;
+    padding: 20px;
+}
+
+h3 {
+    text-align: center;
+}
+
+.population-container {
+    margin-bottom: 20px;
+}
+
+.progress {
+    margin-bottom: 10px;
+    background-color: #ecebeb;
+}
+
+#weather-container {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.weather-main-container {
+    display: flex;
+}
+
+.weather-main-container > img {
+    margin-left: 10px;
+}
+
+.row {
+    padding: 0px 50px;
+}
